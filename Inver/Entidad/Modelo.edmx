@@ -1,0 +1,1076 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="inverModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ClasificacionSet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Clase" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="SiembraId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ComercializadoraSet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="SiembraId" Type="int" Nullable="false" />
+          <Property Name="Comision" Type="smallint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GastoGeneralSet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Fecha" Type="datetime" Nullable="false" />
+          <Property Name="Concepto" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Importe" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Pagado" Type="bit" Nullable="false" />
+          <Property Name="ProveedorId" Type="int" Nullable="false" />
+          <Property Name="TrabajadorId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GastosSiembraSet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Fecha" Type="datetime" Nullable="false" />
+          <Property Name="Concepto" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Importe" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Pagado" Type="bit" Nullable="false" />
+          <Property Name="ProveedorId" Type="int" Nullable="false" />
+          <Property Name="SiembraId" Type="int" Nullable="false" />
+          <Property Name="TrabajadorId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="JornalSet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Fecha" Type="datetime" Nullable="false" />
+          <Property Name="Descripcion" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Importe" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="TrabajadorId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProveedorSet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UsuarioId" Type="int" />
+          <Property Name="Nombre" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RecoleccionSet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Fecha" Type="datetime" Nullable="false" />
+          <Property Name="Kilos" Type="smallint" Nullable="false" />
+          <Property Name="Bultos" Type="smallint" Nullable="false" />
+          <Property Name="Precio" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Cobrado" Type="bit" Nullable="false" />
+          <Property Name="SiembraId" Type="int" Nullable="false" />
+          <Property Name="ComercializadoraId" Type="int" Nullable="false" />
+          <Property Name="ClasificacionId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RiegoSet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Fecha" Type="datetime" Nullable="false" />
+          <Property Name="Nota" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="SiembraId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SiembraSet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Fecha" Type="datetime" Nullable="false" />
+          <Property Name="Cultivo" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Superficie" Type="smallint" Nullable="false" />
+          <Property Name="Plantas" Type="smallint" Nullable="false" />
+          <Property Name="Activa" Type="bit" Nullable="false" />
+          <Property Name="UsuarioId" Type="int" />
+          <Property Name="FechaCierre" Type="datetime" />
+        </EntityType>
+        <EntityType Name="SueltaSet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Fecha" Type="datetime" Nullable="false" />
+          <Property Name="Insecto" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Cantidad" Type="smallint" Nullable="false" />
+          <Property Name="Nota" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="SiembraId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TrabajadorSet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UsuarioId" Type="int" />
+          <Property Name="Nombre" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TratamientoSet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Fecha" Type="datetime" Nullable="false" />
+          <Property Name="Descripcion" Type="nvarchar" MaxLength="2000" Nullable="false" />
+          <Property Name="SiembraId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UsuarioSet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Clave" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Activo" Type="bit" Nullable="false" />
+          <Property Name="FechaFin" Type="date" />
+          <Property Name="NombreCompleto" Type="varchar" MaxLength="60" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Telefono" Type="varchar" MaxLength="9" Nullable="false" />
+          <Property Name="FechaAlta" Type="date" />
+        </EntityType>
+        <Association Name="FK_ClasificacionRecoleccion">
+          <End Role="ClasificacionSet" Type="Self.ClasificacionSet" Multiplicity="1" />
+          <End Role="RecoleccionSet" Type="Self.RecoleccionSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ClasificacionSet">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RecoleccionSet">
+              <PropertyRef Name="ClasificacionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ComercializadoraRecoleccion">
+          <End Role="ComercializadoraSet" Type="Self.ComercializadoraSet" Multiplicity="1" />
+          <End Role="RecoleccionSet" Type="Self.RecoleccionSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ComercializadoraSet">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RecoleccionSet">
+              <PropertyRef Name="ComercializadoraId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProveedorGastoGeneral">
+          <End Role="ProveedorSet" Type="Self.ProveedorSet" Multiplicity="1" />
+          <End Role="GastoGeneralSet" Type="Self.GastoGeneralSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProveedorSet">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="GastoGeneralSet">
+              <PropertyRef Name="ProveedorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProveedorGastosSiembra">
+          <End Role="ProveedorSet" Type="Self.ProveedorSet" Multiplicity="1" />
+          <End Role="GastosSiembraSet" Type="Self.GastosSiembraSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProveedorSet">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="GastosSiembraSet">
+              <PropertyRef Name="ProveedorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProveedorSet_UsuarioSet">
+          <End Role="UsuarioSet" Type="Self.UsuarioSet" Multiplicity="0..1" />
+          <End Role="ProveedorSet" Type="Self.ProveedorSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UsuarioSet">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProveedorSet">
+              <PropertyRef Name="UsuarioId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SiembraClasificacion">
+          <End Role="SiembraSet" Type="Self.SiembraSet" Multiplicity="1" />
+          <End Role="ClasificacionSet" Type="Self.ClasificacionSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SiembraSet">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ClasificacionSet">
+              <PropertyRef Name="SiembraId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SiembraComercializadora">
+          <End Role="SiembraSet" Type="Self.SiembraSet" Multiplicity="1" />
+          <End Role="ComercializadoraSet" Type="Self.ComercializadoraSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SiembraSet">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ComercializadoraSet">
+              <PropertyRef Name="SiembraId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SiembraGastosSiembra">
+          <End Role="SiembraSet" Type="Self.SiembraSet" Multiplicity="1" />
+          <End Role="GastosSiembraSet" Type="Self.GastosSiembraSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SiembraSet">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="GastosSiembraSet">
+              <PropertyRef Name="SiembraId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SiembraRecoleccion">
+          <End Role="SiembraSet" Type="Self.SiembraSet" Multiplicity="1" />
+          <End Role="RecoleccionSet" Type="Self.RecoleccionSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SiembraSet">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RecoleccionSet">
+              <PropertyRef Name="SiembraId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SiembraRiego">
+          <End Role="SiembraSet" Type="Self.SiembraSet" Multiplicity="1" />
+          <End Role="RiegoSet" Type="Self.RiegoSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SiembraSet">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RiegoSet">
+              <PropertyRef Name="SiembraId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SiembraSet_UsuarioSet">
+          <End Role="UsuarioSet" Type="Self.UsuarioSet" Multiplicity="0..1" />
+          <End Role="SiembraSet" Type="Self.SiembraSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UsuarioSet">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SiembraSet">
+              <PropertyRef Name="UsuarioId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SiembraSuelta">
+          <End Role="SiembraSet" Type="Self.SiembraSet" Multiplicity="1" />
+          <End Role="SueltaSet" Type="Self.SueltaSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SiembraSet">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SueltaSet">
+              <PropertyRef Name="SiembraId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SiembraTratamiento">
+          <End Role="SiembraSet" Type="Self.SiembraSet" Multiplicity="1" />
+          <End Role="TratamientoSet" Type="Self.TratamientoSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SiembraSet">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TratamientoSet">
+              <PropertyRef Name="SiembraId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TrabajadorGastoGeneral">
+          <End Role="TrabajadorSet" Type="Self.TrabajadorSet" Multiplicity="1" />
+          <End Role="GastoGeneralSet" Type="Self.GastoGeneralSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TrabajadorSet">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="GastoGeneralSet">
+              <PropertyRef Name="TrabajadorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TrabajadorGastosSiembra">
+          <End Role="TrabajadorSet" Type="Self.TrabajadorSet" Multiplicity="1" />
+          <End Role="GastosSiembraSet" Type="Self.GastosSiembraSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TrabajadorSet">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="GastosSiembraSet">
+              <PropertyRef Name="TrabajadorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TrabajadorJornal">
+          <End Role="TrabajadorSet" Type="Self.TrabajadorSet" Multiplicity="1" />
+          <End Role="JornalSet" Type="Self.JornalSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TrabajadorSet">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="JornalSet">
+              <PropertyRef Name="TrabajadorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TrabajadorSet_UsuarioSet">
+          <End Role="UsuarioSet" Type="Self.UsuarioSet" Multiplicity="0..1" />
+          <End Role="TrabajadorSet" Type="Self.TrabajadorSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UsuarioSet">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TrabajadorSet">
+              <PropertyRef Name="UsuarioId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="inverModelStoreContainer">
+          <EntitySet Name="ClasificacionSet" EntityType="Self.ClasificacionSet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ComercializadoraSet" EntityType="Self.ComercializadoraSet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GastoGeneralSet" EntityType="Self.GastoGeneralSet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GastosSiembraSet" EntityType="Self.GastosSiembraSet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="JornalSet" EntityType="Self.JornalSet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProveedorSet" EntityType="Self.ProveedorSet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RecoleccionSet" EntityType="Self.RecoleccionSet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RiegoSet" EntityType="Self.RiegoSet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SiembraSet" EntityType="Self.SiembraSet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SueltaSet" EntityType="Self.SueltaSet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TrabajadorSet" EntityType="Self.TrabajadorSet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TratamientoSet" EntityType="Self.TratamientoSet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UsuarioSet" EntityType="Self.UsuarioSet" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_ClasificacionRecoleccion" Association="Self.FK_ClasificacionRecoleccion">
+            <End Role="ClasificacionSet" EntitySet="ClasificacionSet" />
+            <End Role="RecoleccionSet" EntitySet="RecoleccionSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ComercializadoraRecoleccion" Association="Self.FK_ComercializadoraRecoleccion">
+            <End Role="ComercializadoraSet" EntitySet="ComercializadoraSet" />
+            <End Role="RecoleccionSet" EntitySet="RecoleccionSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProveedorGastoGeneral" Association="Self.FK_ProveedorGastoGeneral">
+            <End Role="ProveedorSet" EntitySet="ProveedorSet" />
+            <End Role="GastoGeneralSet" EntitySet="GastoGeneralSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProveedorGastosSiembra" Association="Self.FK_ProveedorGastosSiembra">
+            <End Role="ProveedorSet" EntitySet="ProveedorSet" />
+            <End Role="GastosSiembraSet" EntitySet="GastosSiembraSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProveedorSet_UsuarioSet" Association="Self.FK_ProveedorSet_UsuarioSet">
+            <End Role="UsuarioSet" EntitySet="UsuarioSet" />
+            <End Role="ProveedorSet" EntitySet="ProveedorSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SiembraClasificacion" Association="Self.FK_SiembraClasificacion">
+            <End Role="SiembraSet" EntitySet="SiembraSet" />
+            <End Role="ClasificacionSet" EntitySet="ClasificacionSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SiembraComercializadora" Association="Self.FK_SiembraComercializadora">
+            <End Role="SiembraSet" EntitySet="SiembraSet" />
+            <End Role="ComercializadoraSet" EntitySet="ComercializadoraSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SiembraGastosSiembra" Association="Self.FK_SiembraGastosSiembra">
+            <End Role="SiembraSet" EntitySet="SiembraSet" />
+            <End Role="GastosSiembraSet" EntitySet="GastosSiembraSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SiembraRecoleccion" Association="Self.FK_SiembraRecoleccion">
+            <End Role="SiembraSet" EntitySet="SiembraSet" />
+            <End Role="RecoleccionSet" EntitySet="RecoleccionSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SiembraRiego" Association="Self.FK_SiembraRiego">
+            <End Role="SiembraSet" EntitySet="SiembraSet" />
+            <End Role="RiegoSet" EntitySet="RiegoSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SiembraSet_UsuarioSet" Association="Self.FK_SiembraSet_UsuarioSet">
+            <End Role="UsuarioSet" EntitySet="UsuarioSet" />
+            <End Role="SiembraSet" EntitySet="SiembraSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SiembraSuelta" Association="Self.FK_SiembraSuelta">
+            <End Role="SiembraSet" EntitySet="SiembraSet" />
+            <End Role="SueltaSet" EntitySet="SueltaSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SiembraTratamiento" Association="Self.FK_SiembraTratamiento">
+            <End Role="SiembraSet" EntitySet="SiembraSet" />
+            <End Role="TratamientoSet" EntitySet="TratamientoSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TrabajadorGastoGeneral" Association="Self.FK_TrabajadorGastoGeneral">
+            <End Role="TrabajadorSet" EntitySet="TrabajadorSet" />
+            <End Role="GastoGeneralSet" EntitySet="GastoGeneralSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TrabajadorGastosSiembra" Association="Self.FK_TrabajadorGastosSiembra">
+            <End Role="TrabajadorSet" EntitySet="TrabajadorSet" />
+            <End Role="GastosSiembraSet" EntitySet="GastosSiembraSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TrabajadorJornal" Association="Self.FK_TrabajadorJornal">
+            <End Role="TrabajadorSet" EntitySet="TrabajadorSet" />
+            <End Role="JornalSet" EntitySet="JornalSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TrabajadorSet_UsuarioSet" Association="Self.FK_TrabajadorSet_UsuarioSet">
+            <End Role="UsuarioSet" EntitySet="UsuarioSet" />
+            <End Role="TrabajadorSet" EntitySet="TrabajadorSet" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="inverModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ClasificacionSet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Clase" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SiembraId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="RecoleccionSet" Relationship="Self.FK_ClasificacionRecoleccion" FromRole="ClasificacionSet" ToRole="RecoleccionSet" />
+          <NavigationProperty Name="SiembraSet" Relationship="Self.FK_SiembraClasificacion" FromRole="ClasificacionSet" ToRole="SiembraSet" />
+        </EntityType>
+        <EntityType Name="ComercializadoraSet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SiembraId" Type="Int32" Nullable="false" />
+          <Property Name="Comision" Type="Int16" Nullable="false" />
+          <NavigationProperty Name="RecoleccionSet" Relationship="Self.FK_ComercializadoraRecoleccion" FromRole="ComercializadoraSet" ToRole="RecoleccionSet" />
+          <NavigationProperty Name="SiembraSet" Relationship="Self.FK_SiembraComercializadora" FromRole="ComercializadoraSet" ToRole="SiembraSet" />
+        </EntityType>
+        <EntityType Name="GastoGeneralSet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Concepto" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Importe" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Pagado" Type="Boolean" Nullable="false" />
+          <Property Name="ProveedorId" Type="Int32" Nullable="false" />
+          <Property Name="TrabajadorId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ProveedorSet" Relationship="Self.FK_ProveedorGastoGeneral" FromRole="GastoGeneralSet" ToRole="ProveedorSet" />
+          <NavigationProperty Name="TrabajadorSet" Relationship="Self.FK_TrabajadorGastoGeneral" FromRole="GastoGeneralSet" ToRole="TrabajadorSet" />
+        </EntityType>
+        <EntityType Name="GastosSiembraSet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Concepto" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Importe" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Pagado" Type="Boolean" Nullable="false" />
+          <Property Name="ProveedorId" Type="Int32" Nullable="false" />
+          <Property Name="SiembraId" Type="Int32" Nullable="false" />
+          <Property Name="TrabajadorId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ProveedorSet" Relationship="Self.FK_ProveedorGastosSiembra" FromRole="GastosSiembraSet" ToRole="ProveedorSet" />
+          <NavigationProperty Name="SiembraSet" Relationship="Self.FK_SiembraGastosSiembra" FromRole="GastosSiembraSet" ToRole="SiembraSet" />
+          <NavigationProperty Name="TrabajadorSet" Relationship="Self.FK_TrabajadorGastosSiembra" FromRole="GastosSiembraSet" ToRole="TrabajadorSet" />
+        </EntityType>
+        <EntityType Name="JornalSet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Importe" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="TrabajadorId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TrabajadorSet" Relationship="Self.FK_TrabajadorJornal" FromRole="JornalSet" ToRole="TrabajadorSet" />
+        </EntityType>
+        <EntityType Name="ProveedorSet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="GastoGeneralSet" Relationship="Self.FK_ProveedorGastoGeneral" FromRole="ProveedorSet" ToRole="GastoGeneralSet" />
+          <NavigationProperty Name="GastosSiembraSet" Relationship="Self.FK_ProveedorGastosSiembra" FromRole="ProveedorSet" ToRole="GastosSiembraSet" />
+          <Property Name="UsuarioId" Type="Int32" />
+          <NavigationProperty Name="UsuarioSet" Relationship="inverModel.FK_ProveedorSet_UsuarioSet" FromRole="ProveedorSet" ToRole="UsuarioSet" />
+        </EntityType>
+        <EntityType Name="RecoleccionSet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Kilos" Type="Int16" Nullable="false" />
+          <Property Name="Bultos" Type="Int16" Nullable="false" />
+          <Property Name="Precio" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Cobrado" Type="Boolean" Nullable="false" />
+          <Property Name="SiembraId" Type="Int32" Nullable="false" />
+          <Property Name="ComercializadoraId" Type="Int32" Nullable="false" />
+          <Property Name="ClasificacionId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ClasificacionSet" Relationship="Self.FK_ClasificacionRecoleccion" FromRole="RecoleccionSet" ToRole="ClasificacionSet" />
+          <NavigationProperty Name="ComercializadoraSet" Relationship="Self.FK_ComercializadoraRecoleccion" FromRole="RecoleccionSet" ToRole="ComercializadoraSet" />
+          <NavigationProperty Name="SiembraSet" Relationship="Self.FK_SiembraRecoleccion" FromRole="RecoleccionSet" ToRole="SiembraSet" />
+        </EntityType>
+        <EntityType Name="RiegoSet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Nota" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SiembraId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="SiembraSet" Relationship="Self.FK_SiembraRiego" FromRole="RiegoSet" ToRole="SiembraSet" />
+        </EntityType>
+        <EntityType Name="SiembraSet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Cultivo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Superficie" Type="Int16" Nullable="false" />
+          <Property Name="Plantas" Type="Int16" Nullable="false" />
+          <Property Name="Activa" Type="Boolean" Nullable="false" />
+          <Property Name="FechaCierre" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="ClasificacionSet" Relationship="Self.FK_SiembraClasificacion" FromRole="SiembraSet" ToRole="ClasificacionSet" />
+          <NavigationProperty Name="ComercializadoraSet" Relationship="Self.FK_SiembraComercializadora" FromRole="SiembraSet" ToRole="ComercializadoraSet" />
+          <NavigationProperty Name="GastosSiembraSet" Relationship="Self.FK_SiembraGastosSiembra" FromRole="SiembraSet" ToRole="GastosSiembraSet" />
+          <NavigationProperty Name="RecoleccionSet" Relationship="Self.FK_SiembraRecoleccion" FromRole="SiembraSet" ToRole="RecoleccionSet" />
+          <NavigationProperty Name="RiegoSet" Relationship="Self.FK_SiembraRiego" FromRole="SiembraSet" ToRole="RiegoSet" />
+          <NavigationProperty Name="SueltaSet" Relationship="Self.FK_SiembraSuelta" FromRole="SiembraSet" ToRole="SueltaSet" />
+          <NavigationProperty Name="TratamientoSet" Relationship="Self.FK_SiembraTratamiento" FromRole="SiembraSet" ToRole="TratamientoSet" />
+          <Property Name="UsuarioId" Type="Int32" />
+          <NavigationProperty Name="UsuarioSet" Relationship="inverModel.FK_SiembraSet_UsuarioSet" FromRole="SiembraSet" ToRole="UsuarioSet" />
+        </EntityType>
+        <EntityType Name="SueltaSet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Insecto" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Cantidad" Type="Int16" Nullable="false" />
+          <Property Name="Nota" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SiembraId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="SiembraSet" Relationship="Self.FK_SiembraSuelta" FromRole="SueltaSet" ToRole="SiembraSet" />
+        </EntityType>
+        <EntityType Name="TrabajadorSet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="GastoGeneralSet" Relationship="Self.FK_TrabajadorGastoGeneral" FromRole="TrabajadorSet" ToRole="GastoGeneralSet" />
+          <NavigationProperty Name="GastosSiembraSet" Relationship="Self.FK_TrabajadorGastosSiembra" FromRole="TrabajadorSet" ToRole="GastosSiembraSet" />
+          <NavigationProperty Name="JornalSet" Relationship="Self.FK_TrabajadorJornal" FromRole="TrabajadorSet" ToRole="JornalSet" />
+          <Property Name="UsuarioId" Type="Int32" />
+          <NavigationProperty Name="UsuarioSet" Relationship="inverModel.FK_TrabajadorSet_UsuarioSet" FromRole="TrabajadorSet" ToRole="UsuarioSet" />
+        </EntityType>
+        <EntityType Name="TratamientoSet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Descripcion" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SiembraId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="SiembraSet" Relationship="Self.FK_SiembraTratamiento" FromRole="TratamientoSet" ToRole="SiembraSet" />
+        </EntityType>
+        <Association Name="FK_ClasificacionRecoleccion">
+          <End Role="ClasificacionSet" Type="Self.ClasificacionSet" Multiplicity="1" />
+          <End Role="RecoleccionSet" Type="Self.RecoleccionSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ClasificacionSet">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RecoleccionSet">
+              <PropertyRef Name="ClasificacionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SiembraClasificacion">
+          <End Role="SiembraSet" Type="Self.SiembraSet" Multiplicity="1" />
+          <End Role="ClasificacionSet" Type="Self.ClasificacionSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SiembraSet">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ClasificacionSet">
+              <PropertyRef Name="SiembraId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ComercializadoraRecoleccion">
+          <End Role="ComercializadoraSet" Type="Self.ComercializadoraSet" Multiplicity="1" />
+          <End Role="RecoleccionSet" Type="Self.RecoleccionSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ComercializadoraSet">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RecoleccionSet">
+              <PropertyRef Name="ComercializadoraId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SiembraComercializadora">
+          <End Role="SiembraSet" Type="Self.SiembraSet" Multiplicity="1" />
+          <End Role="ComercializadoraSet" Type="Self.ComercializadoraSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SiembraSet">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ComercializadoraSet">
+              <PropertyRef Name="SiembraId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProveedorGastoGeneral">
+          <End Role="ProveedorSet" Type="Self.ProveedorSet" Multiplicity="1" />
+          <End Role="GastoGeneralSet" Type="Self.GastoGeneralSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProveedorSet">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="GastoGeneralSet">
+              <PropertyRef Name="ProveedorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TrabajadorGastoGeneral">
+          <End Role="TrabajadorSet" Type="Self.TrabajadorSet" Multiplicity="1" />
+          <End Role="GastoGeneralSet" Type="Self.GastoGeneralSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TrabajadorSet">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="GastoGeneralSet">
+              <PropertyRef Name="TrabajadorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProveedorGastosSiembra">
+          <End Role="ProveedorSet" Type="Self.ProveedorSet" Multiplicity="1" />
+          <End Role="GastosSiembraSet" Type="Self.GastosSiembraSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProveedorSet">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="GastosSiembraSet">
+              <PropertyRef Name="ProveedorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SiembraGastosSiembra">
+          <End Role="SiembraSet" Type="Self.SiembraSet" Multiplicity="1" />
+          <End Role="GastosSiembraSet" Type="Self.GastosSiembraSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SiembraSet">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="GastosSiembraSet">
+              <PropertyRef Name="SiembraId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TrabajadorGastosSiembra">
+          <End Role="TrabajadorSet" Type="Self.TrabajadorSet" Multiplicity="1" />
+          <End Role="GastosSiembraSet" Type="Self.GastosSiembraSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TrabajadorSet">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="GastosSiembraSet">
+              <PropertyRef Name="TrabajadorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TrabajadorJornal">
+          <End Role="TrabajadorSet" Type="Self.TrabajadorSet" Multiplicity="1" />
+          <End Role="JornalSet" Type="Self.JornalSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TrabajadorSet">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="JornalSet">
+              <PropertyRef Name="TrabajadorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SiembraRecoleccion">
+          <End Role="SiembraSet" Type="Self.SiembraSet" Multiplicity="1" />
+          <End Role="RecoleccionSet" Type="Self.RecoleccionSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SiembraSet">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RecoleccionSet">
+              <PropertyRef Name="SiembraId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SiembraRiego">
+          <End Role="SiembraSet" Type="Self.SiembraSet" Multiplicity="1" />
+          <End Role="RiegoSet" Type="Self.RiegoSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SiembraSet">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RiegoSet">
+              <PropertyRef Name="SiembraId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SiembraSuelta">
+          <End Role="SiembraSet" Type="Self.SiembraSet" Multiplicity="1" />
+          <End Role="SueltaSet" Type="Self.SueltaSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SiembraSet">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SueltaSet">
+              <PropertyRef Name="SiembraId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SiembraTratamiento">
+          <End Role="SiembraSet" Type="Self.SiembraSet" Multiplicity="1" />
+          <End Role="TratamientoSet" Type="Self.TratamientoSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SiembraSet">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TratamientoSet">
+              <PropertyRef Name="SiembraId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="inverEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ClasificacionSet" EntityType="Self.ClasificacionSet" />
+          <EntitySet Name="ComercializadoraSet" EntityType="Self.ComercializadoraSet" />
+          <EntitySet Name="GastoGeneralSet" EntityType="Self.GastoGeneralSet" />
+          <EntitySet Name="GastosSiembraSet" EntityType="Self.GastosSiembraSet" />
+          <EntitySet Name="JornalSet" EntityType="Self.JornalSet" />
+          <EntitySet Name="ProveedorSet" EntityType="Self.ProveedorSet" />
+          <EntitySet Name="RecoleccionSet" EntityType="Self.RecoleccionSet" />
+          <EntitySet Name="RiegoSet" EntityType="Self.RiegoSet" />
+          <EntitySet Name="SiembraSet" EntityType="Self.SiembraSet" />
+          <EntitySet Name="SueltaSet" EntityType="Self.SueltaSet" />
+          <EntitySet Name="TrabajadorSet" EntityType="Self.TrabajadorSet" />
+          <EntitySet Name="TratamientoSet" EntityType="Self.TratamientoSet" />
+          <AssociationSet Name="FK_ClasificacionRecoleccion" Association="Self.FK_ClasificacionRecoleccion">
+            <End Role="ClasificacionSet" EntitySet="ClasificacionSet" />
+            <End Role="RecoleccionSet" EntitySet="RecoleccionSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SiembraClasificacion" Association="Self.FK_SiembraClasificacion">
+            <End Role="SiembraSet" EntitySet="SiembraSet" />
+            <End Role="ClasificacionSet" EntitySet="ClasificacionSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ComercializadoraRecoleccion" Association="Self.FK_ComercializadoraRecoleccion">
+            <End Role="ComercializadoraSet" EntitySet="ComercializadoraSet" />
+            <End Role="RecoleccionSet" EntitySet="RecoleccionSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SiembraComercializadora" Association="Self.FK_SiembraComercializadora">
+            <End Role="SiembraSet" EntitySet="SiembraSet" />
+            <End Role="ComercializadoraSet" EntitySet="ComercializadoraSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProveedorGastoGeneral" Association="Self.FK_ProveedorGastoGeneral">
+            <End Role="ProveedorSet" EntitySet="ProveedorSet" />
+            <End Role="GastoGeneralSet" EntitySet="GastoGeneralSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TrabajadorGastoGeneral" Association="Self.FK_TrabajadorGastoGeneral">
+            <End Role="TrabajadorSet" EntitySet="TrabajadorSet" />
+            <End Role="GastoGeneralSet" EntitySet="GastoGeneralSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProveedorGastosSiembra" Association="Self.FK_ProveedorGastosSiembra">
+            <End Role="ProveedorSet" EntitySet="ProveedorSet" />
+            <End Role="GastosSiembraSet" EntitySet="GastosSiembraSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SiembraGastosSiembra" Association="Self.FK_SiembraGastosSiembra">
+            <End Role="SiembraSet" EntitySet="SiembraSet" />
+            <End Role="GastosSiembraSet" EntitySet="GastosSiembraSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TrabajadorGastosSiembra" Association="Self.FK_TrabajadorGastosSiembra">
+            <End Role="TrabajadorSet" EntitySet="TrabajadorSet" />
+            <End Role="GastosSiembraSet" EntitySet="GastosSiembraSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TrabajadorJornal" Association="Self.FK_TrabajadorJornal">
+            <End Role="TrabajadorSet" EntitySet="TrabajadorSet" />
+            <End Role="JornalSet" EntitySet="JornalSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SiembraRecoleccion" Association="Self.FK_SiembraRecoleccion">
+            <End Role="SiembraSet" EntitySet="SiembraSet" />
+            <End Role="RecoleccionSet" EntitySet="RecoleccionSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SiembraRiego" Association="Self.FK_SiembraRiego">
+            <End Role="SiembraSet" EntitySet="SiembraSet" />
+            <End Role="RiegoSet" EntitySet="RiegoSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SiembraSuelta" Association="Self.FK_SiembraSuelta">
+            <End Role="SiembraSet" EntitySet="SiembraSet" />
+            <End Role="SueltaSet" EntitySet="SueltaSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SiembraTratamiento" Association="Self.FK_SiembraTratamiento">
+            <End Role="SiembraSet" EntitySet="SiembraSet" />
+            <End Role="TratamientoSet" EntitySet="TratamientoSet" />
+          </AssociationSet>
+          <EntitySet Name="UsuarioSet" EntityType="inverModel.UsuarioSet" />
+          <AssociationSet Name="FK_ProveedorSet_UsuarioSet" Association="inverModel.FK_ProveedorSet_UsuarioSet">
+            <End Role="UsuarioSet" EntitySet="UsuarioSet" />
+            <End Role="ProveedorSet" EntitySet="ProveedorSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SiembraSet_UsuarioSet" Association="inverModel.FK_SiembraSet_UsuarioSet">
+            <End Role="UsuarioSet" EntitySet="UsuarioSet" />
+            <End Role="SiembraSet" EntitySet="SiembraSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TrabajadorSet_UsuarioSet" Association="inverModel.FK_TrabajadorSet_UsuarioSet">
+            <End Role="UsuarioSet" EntitySet="UsuarioSet" />
+            <End Role="TrabajadorSet" EntitySet="TrabajadorSet" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="UsuarioSet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Clave" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Activo" Type="Boolean" Nullable="false" />
+          <Property Name="FechaFin" Type="DateTime" Precision="0" />
+          <Property Name="NombreCompleto" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Telefono" Type="String" Nullable="false" MaxLength="9" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ProveedorSet" Relationship="inverModel.FK_ProveedorSet_UsuarioSet" FromRole="UsuarioSet" ToRole="ProveedorSet" />
+          <NavigationProperty Name="SiembraSet" Relationship="inverModel.FK_SiembraSet_UsuarioSet" FromRole="UsuarioSet" ToRole="SiembraSet" />
+          <NavigationProperty Name="TrabajadorSet" Relationship="inverModel.FK_TrabajadorSet_UsuarioSet" FromRole="UsuarioSet" ToRole="TrabajadorSet" />
+          <Property Name="FechaAlta" Type="DateTime" Precision="0" />
+        </EntityType>
+        <Association Name="FK_ProveedorSet_UsuarioSet">
+          <End Type="inverModel.UsuarioSet" Role="UsuarioSet" Multiplicity="0..1" />
+          <End Type="inverModel.ProveedorSet" Role="ProveedorSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UsuarioSet">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProveedorSet">
+              <PropertyRef Name="UsuarioId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SiembraSet_UsuarioSet">
+          <End Type="inverModel.UsuarioSet" Role="UsuarioSet" Multiplicity="0..1" />
+          <End Type="inverModel.SiembraSet" Role="SiembraSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UsuarioSet">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SiembraSet">
+              <PropertyRef Name="UsuarioId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TrabajadorSet_UsuarioSet">
+          <End Type="inverModel.UsuarioSet" Role="UsuarioSet" Multiplicity="0..1" />
+          <End Type="inverModel.TrabajadorSet" Role="TrabajadorSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UsuarioSet">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TrabajadorSet">
+              <PropertyRef Name="UsuarioId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="inverModelStoreContainer" CdmEntityContainer="inverEntities">
+          <EntitySetMapping Name="ClasificacionSet">
+            <EntityTypeMapping TypeName="inverModel.ClasificacionSet">
+              <MappingFragment StoreEntitySet="ClasificacionSet">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Clase" ColumnName="Clase" />
+                <ScalarProperty Name="SiembraId" ColumnName="SiembraId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ComercializadoraSet">
+            <EntityTypeMapping TypeName="inverModel.ComercializadoraSet">
+              <MappingFragment StoreEntitySet="ComercializadoraSet">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="SiembraId" ColumnName="SiembraId" />
+                <ScalarProperty Name="Comision" ColumnName="Comision" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GastoGeneralSet">
+            <EntityTypeMapping TypeName="inverModel.GastoGeneralSet">
+              <MappingFragment StoreEntitySet="GastoGeneralSet">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="Concepto" ColumnName="Concepto" />
+                <ScalarProperty Name="Importe" ColumnName="Importe" />
+                <ScalarProperty Name="Pagado" ColumnName="Pagado" />
+                <ScalarProperty Name="ProveedorId" ColumnName="ProveedorId" />
+                <ScalarProperty Name="TrabajadorId" ColumnName="TrabajadorId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GastosSiembraSet">
+            <EntityTypeMapping TypeName="inverModel.GastosSiembraSet">
+              <MappingFragment StoreEntitySet="GastosSiembraSet">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="Concepto" ColumnName="Concepto" />
+                <ScalarProperty Name="Importe" ColumnName="Importe" />
+                <ScalarProperty Name="Pagado" ColumnName="Pagado" />
+                <ScalarProperty Name="ProveedorId" ColumnName="ProveedorId" />
+                <ScalarProperty Name="SiembraId" ColumnName="SiembraId" />
+                <ScalarProperty Name="TrabajadorId" ColumnName="TrabajadorId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="JornalSet">
+            <EntityTypeMapping TypeName="inverModel.JornalSet">
+              <MappingFragment StoreEntitySet="JornalSet">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Importe" ColumnName="Importe" />
+                <ScalarProperty Name="TrabajadorId" ColumnName="TrabajadorId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProveedorSet">
+            <EntityTypeMapping TypeName="inverModel.ProveedorSet">
+              <MappingFragment StoreEntitySet="ProveedorSet">
+                <ScalarProperty Name="UsuarioId" ColumnName="UsuarioId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RecoleccionSet">
+            <EntityTypeMapping TypeName="inverModel.RecoleccionSet">
+              <MappingFragment StoreEntitySet="RecoleccionSet">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="Kilos" ColumnName="Kilos" />
+                <ScalarProperty Name="Bultos" ColumnName="Bultos" />
+                <ScalarProperty Name="Precio" ColumnName="Precio" />
+                <ScalarProperty Name="Cobrado" ColumnName="Cobrado" />
+                <ScalarProperty Name="SiembraId" ColumnName="SiembraId" />
+                <ScalarProperty Name="ComercializadoraId" ColumnName="ComercializadoraId" />
+                <ScalarProperty Name="ClasificacionId" ColumnName="ClasificacionId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RiegoSet">
+            <EntityTypeMapping TypeName="inverModel.RiegoSet">
+              <MappingFragment StoreEntitySet="RiegoSet">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="Nota" ColumnName="Nota" />
+                <ScalarProperty Name="SiembraId" ColumnName="SiembraId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SiembraSet">
+            <EntityTypeMapping TypeName="inverModel.SiembraSet">
+              <MappingFragment StoreEntitySet="SiembraSet">
+                <ScalarProperty Name="UsuarioId" ColumnName="UsuarioId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="Cultivo" ColumnName="Cultivo" />
+                <ScalarProperty Name="Superficie" ColumnName="Superficie" />
+                <ScalarProperty Name="Plantas" ColumnName="Plantas" />
+                <ScalarProperty Name="Activa" ColumnName="Activa" />
+                <ScalarProperty Name="FechaCierre" ColumnName="FechaCierre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SueltaSet">
+            <EntityTypeMapping TypeName="inverModel.SueltaSet">
+              <MappingFragment StoreEntitySet="SueltaSet">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="Insecto" ColumnName="Insecto" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="Nota" ColumnName="Nota" />
+                <ScalarProperty Name="SiembraId" ColumnName="SiembraId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TrabajadorSet">
+            <EntityTypeMapping TypeName="inverModel.TrabajadorSet">
+              <MappingFragment StoreEntitySet="TrabajadorSet">
+                <ScalarProperty Name="UsuarioId" ColumnName="UsuarioId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TratamientoSet">
+            <EntityTypeMapping TypeName="inverModel.TratamientoSet">
+              <MappingFragment StoreEntitySet="TratamientoSet">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="SiembraId" ColumnName="SiembraId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UsuarioSet">
+            <EntityTypeMapping TypeName="inverModel.UsuarioSet">
+              <MappingFragment StoreEntitySet="UsuarioSet">
+                <ScalarProperty Name="FechaAlta" ColumnName="FechaAlta" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="NombreCompleto" ColumnName="NombreCompleto" />
+                <ScalarProperty Name="FechaFin" ColumnName="FechaFin" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="Clave" ColumnName="Clave" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c1b60397b45145eea11e50992fd2fd19" Name="Diagram1" ZoomLevel="100">
+        <EntityTypeShape EntityType="inverModel.ClasificacionSet" Width="1.5" PointX="3" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="inverModel.ComercializadoraSet" Width="1.5" PointX="3" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="inverModel.GastoGeneralSet" Width="2.375" PointX="9" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="inverModel.GastosSiembraSet" Width="2.375" PointX="6" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="inverModel.JornalSet" Width="1.5" PointX="6" PointY="26.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="inverModel.ProveedorSet" Width="1.5" PointX="3.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="inverModel.RecoleccionSet" Width="1.5" PointX="5.25" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="inverModel.RiegoSet" Width="1.5" PointX="3" PointY="13.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="inverModel.SiembraSet" Width="1.5" PointX="0.75" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="inverModel.SueltaSet" Width="1.5" PointX="3" PointY="16.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="inverModel.TrabajadorSet" Width="1.5" PointX="3.75" PointY="23.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="inverModel.TratamientoSet" Width="1.5" PointX="3" PointY="19.75" IsExpanded="true" />
+        <AssociationConnector Association="inverModel.FK_ClasificacionRecoleccion" ManuallyRouted="false" />
+        <AssociationConnector Association="inverModel.FK_SiembraClasificacion" ManuallyRouted="false" />
+        <AssociationConnector Association="inverModel.FK_ComercializadoraRecoleccion" ManuallyRouted="false" />
+        <AssociationConnector Association="inverModel.FK_SiembraComercializadora" ManuallyRouted="false" />
+        <AssociationConnector Association="inverModel.FK_ProveedorGastoGeneral" ManuallyRouted="false" />
+        <AssociationConnector Association="inverModel.FK_TrabajadorGastoGeneral" ManuallyRouted="false" />
+        <AssociationConnector Association="inverModel.FK_ProveedorGastosSiembra" ManuallyRouted="false" />
+        <AssociationConnector Association="inverModel.FK_SiembraGastosSiembra" ManuallyRouted="false" />
+        <AssociationConnector Association="inverModel.FK_TrabajadorGastosSiembra" ManuallyRouted="false" />
+        <AssociationConnector Association="inverModel.FK_TrabajadorJornal" ManuallyRouted="false" />
+        <AssociationConnector Association="inverModel.FK_SiembraRecoleccion" ManuallyRouted="false" />
+        <AssociationConnector Association="inverModel.FK_SiembraRiego" ManuallyRouted="false" />
+        <AssociationConnector Association="inverModel.FK_SiembraSuelta" ManuallyRouted="false" />
+        <AssociationConnector Association="inverModel.FK_SiembraTratamiento" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="inverModel.UsuarioSet" Width="1.5" PointX="0.625" PointY="14.375" IsExpanded="true" />
+        <AssociationConnector Association="inverModel.FK_ProveedorSet_UsuarioSet" />
+        <AssociationConnector Association="inverModel.FK_SiembraSet_UsuarioSet" />
+        <AssociationConnector Association="inverModel.FK_TrabajadorSet_UsuarioSet" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
